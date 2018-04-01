@@ -1,0 +1,31 @@
+<html>
+  <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <title>Inventory</title>
+  </head>
+  <body>
+      <h1>Welcome!</h1>
+        <div class="container">
+          <table border="5" cellpadding="10" width="1000">
+            <thead align="center">
+            <tr>
+              <th align="center">#</th>
+              <th align="center">Name</th>
+              <th align="center">Inventory Code</th>
+              <th align="center">Stocks left</th>
+              <th align="center">Operations</th>
+            </tr>
+            <tr>
+              {% for x in names %}
+              <td align="center"> {{ x }}</td>
+              <td align="center"> {{ x.inventory_name }}</td>
+              <td align="center"> {{ x.inventory_code }}</td>
+              <td align="center"> {{ x.stocks_left }}</td>
+              <td><a href={% url 'myapp:added' pk=x.pk %}><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span></button></form><br></td>
+              <td><a href={% url 'myapp:subtracted' pk=x.pk %}><button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-minus"></span></button></form><br></td>
+            </tr>
+            {% endfor %}
+          </table>
+   </div>
+</body>
+</html>
